@@ -8,6 +8,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* storeをAppコンポーネント内で参照出来るようにしている */}
     <Provider store={store}>
       <App />
     </Provider>

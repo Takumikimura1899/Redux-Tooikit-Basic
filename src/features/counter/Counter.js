@@ -11,8 +11,10 @@ import {
 import styles from './Counter.module.css';
 
 export function Counter() {
+  // counterSliceでexportしたselectorCount(現在のsateのcountの値)をuseSelectorの引数に渡す
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
+  // 入力された値をsateとして保持している
   const [incrementAmount, setIncrementAmount] = useState('2');
 
   const incrementValue = Number(incrementAmount) || 0;
@@ -22,15 +24,17 @@ export function Counter() {
       <div className={styles.row}>
         <button
           className={styles.button}
-          aria-label="Decrement value"
+          aria-label='Decrement value'
+          // クリックイベントでdecrementが呼ばれる
           onClick={() => dispatch(decrement())}
         >
           -
         </button>
+        {/* 上で定義したcountを表示 */}
         <span className={styles.value}>{count}</span>
         <button
           className={styles.button}
-          aria-label="Increment value"
+          aria-label='Increment value'
           onClick={() => dispatch(increment())}
         >
           +
@@ -39,7 +43,7 @@ export function Counter() {
       <div className={styles.row}>
         <input
           className={styles.textbox}
-          aria-label="Set increment amount"
+          aria-label='Set increment amount'
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
